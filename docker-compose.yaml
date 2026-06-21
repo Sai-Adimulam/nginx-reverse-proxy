@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    flask:
+       build: .
+       container_name: flask-container
+
+    nginx:
+      image: nginx:latest
+      container_name: nginx-container
+      ports:
+       - "80:80"
+0      volumes:
+       - nginx-volume:/data
+      networks:
+       - nginx-network
+
+volumes:
+  nginx-volume:
+networks:
+  nginx-network:
+
